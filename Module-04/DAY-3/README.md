@@ -1,22 +1,24 @@
-# Ex.No:4(C)    CONSTRUCTOR CHAINING(SUPER KEYWORD)
+# Ex.No:4(D) FINAL & STATIC IN JAVA
 
 ## AIM:
-To Create a Java program to implement super keyword in constructor.
-
+   To create a Java program to perform final & static keyword for below situation Employee object contains member 'Emp_Id'. It contains object named name, which contains its own informations such as Fname, Mname, Lname.
+ 
 ## ALGORITHM :
-1.  Start the Program.
-2.	Define class `College`:
--	a) Define method `display()` that prints "I am a Vehicle"aa
-3.	Define class `Student` that extends `College`:
--	a) Override method `display()` to print "I am a Car"
--	b) Define method `print()`:
--	i) Call `super.display()` to invoke `display()` from `College` class
--	ii) Call `this.display()` to invoke `display()` from `Student` class
+1.	Start the Program.
+2.	Define class `Name`:
+-	a) Declare three `String` variables: `Fname`, `Mname`, and `Lname`
+-	b) Define method `dispName(String fn, String mn, String ln)`:
+-	i) Print the full name using the passed parameters `fn`, `mn`, and `ln`
+3.	Define class `Employee`:
+-	a) Declare an integer variable `Emp_Id`
+-	b) Create an instance of `Name` called `obj`
+-	c) Define method `disp(int id)`:
+-	i) Print the employee ID
+-	ii) Create a new `Name` object and call `dispName("B", "Leo", "John")` to display the name
 4.	Define `Main` class with `main` method:
--	a) Create a `Student` object `sc`
--	b) Call `sc.print()` to execute the `print()` method
+-	a) Create an `Employee` object `emp`
+-	b) Call `emp.disp(101)` to display the employee details
 5.	End
-
 
 
 
@@ -26,7 +28,7 @@ To Create a Java program to implement super keyword in constructor.
 ## PROGRAM:
  ```
 /*
-Program to implement a Constructor Chaining using Java
+Program to implement a final & Static using Java
 Developed by: KALPANAA BABU TM
 RegisterNumber: 212224230112
 */
@@ -34,47 +36,47 @@ RegisterNumber: 212224230112
 
 ## Sourcecode.java:
 
-
 ```
-class Parent {
-  void display(){
-    System.out.println("I am a Bird");
-  }
+final class Student {
+    String Name;
+    String Id;
+    final String Year = "3th Year"; // Final variable with a fixed value
+
+    // Constructor to initialize Name and Id
+    Student(String Name, String Id) {
+        this.Name = Name;
+        this.Id = Id;
+    }
+
+    // Method to display the details
+    void print() {
+        System.out.println("Student Details are,");
+        System.out.println("Id is " + Id);
+        System.out.println("Name is " + Name);
+        System.out.println("Year of Studying is " + Year);
+    }
 }
 
-class Child extends Parent{
-
-  public void  display(){
-    System.out.println("I am a Parrot");
-  }
-
-  public void print(){
-
-    
-    this.display();
-
-    super.display();
-  }
-}
-
+// Main class to test the functionality
 public class Main {
-  public static void main(String[] args) {
-    Child obj = new Child();
-    obj.print();
-  }
+    public static void main(String[] args) {
+        // Create an instance of Student class with given Name and Id
+        Student student = new Student("David", "S201");
+
+        // Call the print method to display the details
+        student.print();
+    }
 }
+
 ```
+
 
 
 
 
 ## OUTPUT:
-<img width="526" alt="Image" src="https://github.com/user-attachments/assets/4acb3b1c-abc0-4bf7-a945-71cfde631a61" />
+<img width="558" alt="Image" src="https://github.com/user-attachments/assets/02e296c7-1a4b-4abf-87bd-cd67d25cc525" />
 
 
 ## RESULT:
-Thus the java program for constructor chaining was executed successfully.
-
-
-
-
+Thus, the java program to perform final & static keyword was executed successfully.
